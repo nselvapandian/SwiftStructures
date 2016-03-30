@@ -33,7 +33,7 @@ class HashTable {
         hashindex = self.createHash(fullname)
         
         
-        var childToUse: HashNode = HashNode()
+        let childToUse: HashNode = HashNode()
         var head: HashNode!
         
         
@@ -42,13 +42,13 @@ class HashTable {
         
         
         //check for an existing list
-        if (buckets[hashindex] == nil) {
+        if  buckets[hashindex] == nil {
             buckets[hashindex] = childToUse
         }
         
         else {
             
-            println("a collision occured. implementing chaining..")
+            print("a collision occured. implementing chaining..")
             head = buckets[hashindex]
             
             
@@ -78,8 +78,8 @@ class HashTable {
         
         
         //determine if the value is present
-        if (buckets[hashindex] == nil) {
-            println("name not found in hash table..")
+        if  buckets[hashindex] == nil {
+            print("name not found in hash table..")
             return false
         }
         
@@ -91,15 +91,15 @@ class HashTable {
             
             while (current != nil) {
                 
-                var hashName: String! = current.firstname + current.lastname
+                let hashName: String! = current.firstname + current.lastname
                 
                 if (hashName == fullname) {
-                    println("\(current.firstname) \(current.lastname) found in hash table..")
+                    print("\(current.firstname) \(current.lastname) found in hash table..")
                     return true
                 }
                 
                 
-                println("searching for word through chained list..")
+                print("searching for word through chained list..")
                 current = current.next
                 
                 
@@ -109,15 +109,15 @@ class HashTable {
         } //end if
         
         
-        println("name not found in hash table..")
+        print("name not found in hash table..")
         return false
         
     }
     
     
     
-    //return the hash value to be used
-    func createHash(fullname: String) -> Int! {
+   //return the hash value to be used
+   func createHash(fullname: String) -> Int! {
         
         var remainder: Int = 0
         var divisor: Int = 0
@@ -130,8 +130,8 @@ class HashTable {
         
         /*
         note: modular math is used to calculate a hash value. The bucket count is used
-        as the dividend to ensure all possible outcomes are between 0 and 25. This is an example
-        of a simple but effective hash algorithm.
+        as the dividend to ensure all possible outcomes are between 0 and the collection size. 
+        This is an example of a simple but effective hash algorithm.
         */
         
         remainder = divisor % buckets.count

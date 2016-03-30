@@ -24,11 +24,11 @@ public class SwiftGraph {
     
     
     //create a new vertex
-    func addVertex(#key: String) -> Vertex {
+    func addVertex(key key: String) -> Vertex {
         
         
         //set the key
-        var childVertex: Vertex = Vertex()
+        let childVertex: Vertex = Vertex()
         childVertex.key = key
         
         
@@ -42,11 +42,11 @@ public class SwiftGraph {
     
     
     //add edge to source vertex
-    func addEdge(#source: Vertex, neighbor: Vertex, weight: Int) {
+    func addEdge(source source: Vertex, neighbor: Vertex, weight: Int) {
         
         
         //create a new edge
-        var newEdge = Edge()
+        let newEdge = Edge()
         
         
         //establish the default properties
@@ -55,7 +55,7 @@ public class SwiftGraph {
         source.neighbors.append(newEdge)
         
         
-        println("The neighbor of vertex: \(source.key as String!) is \(neighbor.key as String!)..")
+        print("The neighbor of vertex: \(source.key as String!) is \(neighbor.key as String!)..")
         
         
         //check condition for an undirected graph
@@ -63,61 +63,21 @@ public class SwiftGraph {
             
             
             //create a new reversed edge
-            var reverseEdge = Edge()
+            let reverseEdge = Edge()
             
             
-            //estabish the reversed properties
+            //establish the reversed properties
             reverseEdge.neighbor = source
             reverseEdge.weight = weight
             neighbor.neighbors.append(reverseEdge)
             
-            println("The neighbor of vertex: \(neighbor.key as String!) is \(source.key as String!)..")
+            print("The neighbor of vertex: \(neighbor.key as String!) is \(source.key as String!)..")
             
         }
         
         
     }
 
-    
-    
-   //breadth first search
-   func traverseGraphBFS(startingv: Vertex) {
-
-    
-        //establish a new queue
-        var graphQueue: Queue<Vertex> = Queue<Vertex>()
-    
-    
-        //queue a starting vertex
-        graphQueue.enQueue(startingv)
-    
-        while(!graphQueue.isEmpty()) {
-            
-            //traverse the next queued vertex
-            var vitem = graphQueue.deQueue() as Vertex!
-            
-            
-            //add unvisited vertices to the queue
-            for e in vitem.neighbors {
-                if e.neighbor.visited == false {
-                    println("adding vertex: \(e.neighbor.key!) to queue..")
-                    graphQueue.enQueue(e.neighbor)
-                }
-            }
-            
-            
-            vitem.visited = true
-            println("traversed vertex: \(vitem.key!)..")
-            
-            
-        } //end while
-    
-    
-        println("graph traversal complete..")
-    
-    
-    } //end function
-    
     
     
     
@@ -127,8 +87,8 @@ public class SwiftGraph {
 
     func reversePath(var head: Path!, source: Vertex) -> Path! {
         
-        if (head == nil) {
-            return nil;
+        if head == nil {
+           return nil
         }
         
         
@@ -146,7 +106,7 @@ public class SwiftGraph {
         
         
         //append the source path to the sequence
-        var sourcePath: Path = Path()
+        let sourcePath: Path = Path()
         
         sourcePath.destination = source
         sourcePath.previous = prev
@@ -173,7 +133,7 @@ public class SwiftGraph {
         //use source edges to create the frontier
         for e in source.neighbors {
             
-            var newPath: Path = Path()
+            let newPath: Path = Path()
             
             
             newPath.destination = e.neighbor
@@ -191,20 +151,16 @@ public class SwiftGraph {
         var bestPath: Path = Path()
         
         
-        while(frontier.count != 0) {
-
+        while frontier.count != 0 {
             
             //support path changes using the greedy approach
             bestPath = Path()
-            
-            
-            var x: Int = 0
             var pathIndex: Int = 0
-            
-            
-            for (x = 0; x < frontier.count; x++) {
 
-                var itemPath: Path = frontier[x]
+            
+            for x in 0..<frontier.count {
+               
+                let itemPath: Path = frontier[x]
                 
                 if  (bestPath.total == nil) || (itemPath.total < bestPath.total) {
                     bestPath = itemPath
@@ -212,12 +168,13 @@ public class SwiftGraph {
                 }
                 
             }
-
+            
+            
             
             //enumerate the bestPath edges
             for e in bestPath.destination.neighbors {
                 
-                var newPath: Path = Path()
+                let newPath: Path = Path()
                 
                 newPath.destination = e.neighbor
                 newPath.previous = bestPath
@@ -269,14 +226,14 @@ public class SwiftGraph {
     func processDijkstraWithHeap(source: Vertex, destination: Vertex) -> Path! {
         
         
-        var frontier: PathHeap = PathHeap()
-        var finalPaths: PathHeap = PathHeap()
+        let frontier: PathHeap = PathHeap()
+        let finalPaths: PathHeap = PathHeap()
         
         
         //use source edges to create the frontier
         for e in source.neighbors {
             
-            var newPath: Path = Path()
+            let newPath: Path = Path()
             
             
             newPath.destination = e.neighbor
@@ -294,9 +251,8 @@ public class SwiftGraph {
         var bestPath: Path = Path()
         
         
-        while(frontier.count != 0) {
-            
-            
+        while frontier.count != 0 {
+                        
             //use the greedy approach to obtain the best path
             bestPath = Path()
             bestPath = frontier.peek()
@@ -305,7 +261,7 @@ public class SwiftGraph {
             //enumerate the bestPath edges
             for e in bestPath.destination.neighbors {
                 
-                var newPath: Path = Path()
+                let newPath: Path = Path()
                 
                 newPath.destination = e.neighbor
                 newPath.previous = bestPath
@@ -341,7 +297,145 @@ public class SwiftGraph {
         
     }
     
+    
+    //MARK: traversal algorithms
+    
+    
+    //bfs traversal with inout closure function
+    func traverse(startingv: Vertex, formula: (inout node: Vertex) -> ()) {
 
+        
+        //establish a new queue
+        let graphQueue: Queue<Vertex> = Queue<Vertex>()
+        
+        
+        //queue a starting vertex
+        graphQueue.enQueue(startingv)
+        
+        
+        while !graphQueue.isEmpty() {
+            
+            //traverse the next queued vertex
+            var vitem: Vertex = graphQueue.deQueue() as Vertex!
+            
+            
+            //add unvisited vertices to the queue
+            for e in vitem.neighbors {
+                if e.neighbor.visited == false {
+                    print("adding vertex: \(e.neighbor.key!) to queue..")
+                    graphQueue.enQueue(e.neighbor)
+                }
+            }
+            
+
+            /*
+            notes: this demonstrates how to invoke a closure with an inout parameter.
+            By passing by reference no return value is required.
+            */
+            
+            //invoke formula
+            formula(node: &vitem)
+            
+            
+        } //end while
+        
+        
+        print("graph traversal complete..")
+        
+        
+    }
+
+    
+    
+    
+    //breadth first search
+    func traverse(startingv: Vertex) {
+        
+        
+        //establish a new queue
+        let graphQueue: Queue<Vertex> = Queue<Vertex>()
+        
+        
+        //queue a starting vertex
+        graphQueue.enQueue(startingv)
+        
+        
+        while !graphQueue.isEmpty() {
+            
+            //traverse the next queued vertex
+            let vitem = graphQueue.deQueue() as Vertex!
+            
+            
+            //add unvisited vertices to the queue
+            for e in vitem.neighbors {
+                if e.neighbor.visited == false {
+                    print("adding vertex: \(e.neighbor.key!) to queue..")
+                    graphQueue.enQueue(e.neighbor)
+                }
+            }
+            
+            
+            vitem.visited = true
+            print("traversed vertex: \(vitem.key!)..")
+            
+            
+        } //end while
+        
+        
+        print("graph traversal complete..")
+        
+        
+    } //end function
+    
+    
+    
+    //use bfs with trailing closure to update all values
+    func update(startingv: Vertex, formula:(Vertex -> Bool)) {
+        
+        
+        //establish a new queue
+        let graphQueue: Queue<Vertex> = Queue<Vertex>()
+        
+        
+        //queue a starting vertex
+        graphQueue.enQueue(startingv)
+        
+        
+        while !graphQueue.isEmpty() {
+            
+            //traverse the next queued vertex
+            let vitem = graphQueue.deQueue() as Vertex!
+            
+            
+            //add unvisited vertices to the queue
+            for e in vitem.neighbors {
+                if e.neighbor.visited == false {
+                    print("adding vertex: \(e.neighbor.key!) to queue..")
+                    graphQueue.enQueue(e.neighbor)
+                }
+            }
+            
+            
+            //apply formula..
+            if formula(vitem) == false {
+                print("formula unable to update: \(vitem.key)")
+            }
+            else {
+                print("traversed vertex: \(vitem.key!)..")
+            }
+            
+            vitem.visited = true
+            
+            
+        } //end while
+        
+        
+        print("graph traversal complete..")
+        
+        
+    }
+
+    
 
     
     

@@ -7,30 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA14645B1A042C600033349A /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0021119C5677D0035F1A0 /* LinkedList.swift */; };
-		DA26BCCF19CBA3D200C0903A /* Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0021319C5677D0035F1A0 /* Sorting.swift */; };
+		DA1A7D6B1B97A2080007BD2B /* Bloom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A7D6A1B97A2080007BD2B /* Bloom.swift */; };
+		DA20DEEA1BE2D95A0032A378 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20DEE91BE2D95A0032A378 /* Math.swift */; };
+		DA20DEEC1BE2DAC90032A378 /* MathTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20DEEB1BE2DAC90032A378 /* MathTest.swift */; };
 		DA34571419CA3A9000DC871F /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0021119C5677D0035F1A0 /* LinkedList.swift */; };
-		DA34572D19CA3F1F00DC871F /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0022019C567A40035F1A0 /* Path.swift */; };
-		DA7B7C5319C8F67A00D2E177 /* LLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0022219C567A40035F1A0 /* LLNode.swift */; };
-		DA7B7C5619C94C4800D2E177 /* QNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0022119C567A40035F1A0 /* QNode.swift */; };
-		DA7B7C5919CA0BCC00D2E177 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0022319C567A40035F1A0 /* Vertex.swift */; };
-		DA7B7C5A19CA0BF300D2E177 /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0022419C567A40035F1A0 /* Edge.swift */; };
-		DA7B7C6219CA178900D2E177 /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0022519C567A40035F1A0 /* AVLTree.swift */; };
+		DA5171861B9888310091F94B /* BloomTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5171851B9888310091F94B /* BloomTest.swift */; };
+		DA66A48A1B1CF50500D1B43F /* ClosureTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA66A4891B1CF50500D1B43F /* ClosureTest.swift */; };
 		DA7B7C6419CA284100D2E177 /* StructureTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B7C6319CA284100D2E177 /* StructureTest.swift */; };
 		DA7BD6AE19CCD8B400DB2CB4 /* GraphTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7BD6AD19CCD8B400DB2CB4 /* GraphTest.swift */; };
-		DA7BD6AF19CCED3A00DB2CB4 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0021219C5677D0035F1A0 /* Graph.swift */; };
-		DA7BD6B019CCED6D00DB2CB4 /* PathHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0021619C5677D0035F1A0 /* PathHeap.swift */; };
-		DA7BD6B119CCED7A00DB2CB4 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0021419C5677D0035F1A0 /* Queue.swift */; };
 		DA81469F19ED831B004516F9 /* TrieTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81469E19ED831B004516F9 /* TrieTest.swift */; };
-		DA8146A219ED84EE004516F9 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0022619C567A40035F1A0 /* extensions.swift */; };
-		DA8146A319ED84F1004516F9 /* TrieNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE0021719C5677D0035F1A0 /* TrieNode.swift */; };
 		DA8146A519ED905B004516F9 /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8146A419ED905B004516F9 /* Trie.swift */; };
-		DA8146A619ED905B004516F9 /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8146A419ED905B004516F9 /* Trie.swift */; };
 		DA908DDA1A015FB400DD9864 /* HashNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA908DD91A015FB400DD9864 /* HashNode.swift */; };
 		DA908DDC1A0160A300DD9864 /* HashTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA908DDB1A0160A300DD9864 /* HashTable.swift */; };
 		DA908DDE1A016A7700DD9864 /* HashTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA908DDD1A016A7700DD9864 /* HashTest.swift */; };
-		DA908DDF1A016A9200DD9864 /* HashTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA908DDB1A0160A300DD9864 /* HashTable.swift */; };
-		DA908DE01A016A9800DD9864 /* HashNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA908DD91A015FB400DD9864 /* HashNode.swift */; };
+		DAA4C8A01B9657EA00BA1BA0 /* StackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4C89F1B9657EA00BA1BA0 /* StackTest.swift */; };
+		DAA8EB9B1B7297C6004A0CCF /* QueueTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8EB9A1B7297C6004A0CCF /* QueueTest.swift */; };
 		DAD971AC19D1F86300C133C9 /* SortingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD971AB19D1F86300C133C9 /* SortingTest.swift */; };
 		DAD971AE19D222E300C133C9 /* LinkedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD971AD19D222E300C133C9 /* LinkedTest.swift */; };
 		DAD971B119D2232400C133C9 /* AVLTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD971B019D2232400C133C9 /* AVLTest.swift */; };
@@ -86,6 +77,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA1A7D6A1B97A2080007BD2B /* Bloom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bloom.swift; sourceTree = "<group>"; };
+		DA20DEE91BE2D95A0032A378 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		DA20DEEB1BE2DAC90032A378 /* MathTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathTest.swift; sourceTree = "<group>"; };
+		DA5171851B9888310091F94B /* BloomTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloomTest.swift; sourceTree = "<group>"; };
+		DA66A4891B1CF50500D1B43F /* ClosureTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureTest.swift; sourceTree = "<group>"; };
 		DA7B7C6319CA284100D2E177 /* StructureTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StructureTest.swift; sourceTree = "<group>"; };
 		DA7BD6AD19CCD8B400DB2CB4 /* GraphTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphTest.swift; sourceTree = "<group>"; };
 		DA81469E19ED831B004516F9 /* TrieTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrieTest.swift; sourceTree = "<group>"; };
@@ -93,6 +89,8 @@
 		DA908DD91A015FB400DD9864 /* HashNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashNode.swift; sourceTree = "<group>"; };
 		DA908DDB1A0160A300DD9864 /* HashTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTable.swift; sourceTree = "<group>"; };
 		DA908DDD1A016A7700DD9864 /* HashTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTest.swift; sourceTree = "<group>"; };
+		DAA4C89F1B9657EA00BA1BA0 /* StackTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTest.swift; sourceTree = "<group>"; };
+		DAA8EB9A1B7297C6004A0CCF /* QueueTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueTest.swift; sourceTree = "<group>"; };
 		DAD971AB19D1F86300C133C9 /* SortingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingTest.swift; sourceTree = "<group>"; };
 		DAD971AD19D222E300C133C9 /* LinkedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedTest.swift; sourceTree = "<group>"; };
 		DAD971B019D2232400C133C9 /* AVLTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLTest.swift; sourceTree = "<group>"; };
@@ -182,12 +180,17 @@
 		DAE0020319C564C90035F1A0 /* SwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				DAD971AB19D1F86300C133C9 /* SortingTest.swift */,
+				DA20DEEB1BE2DAC90032A378 /* MathTest.swift */,
+				DA5171851B9888310091F94B /* BloomTest.swift */,
+				DAA4C89F1B9657EA00BA1BA0 /* StackTest.swift */,
+				DAA8EB9A1B7297C6004A0CCF /* QueueTest.swift */,
+				DA66A4891B1CF50500D1B43F /* ClosureTest.swift */,
 				DA908DDD1A016A7700DD9864 /* HashTest.swift */,
 				DA81469E19ED831B004516F9 /* TrieTest.swift */,
 				DA7BD6AD19CCD8B400DB2CB4 /* GraphTest.swift */,
 				DAD971B019D2232400C133C9 /* AVLTest.swift */,
 				DAD971AD19D222E300C133C9 /* LinkedTest.swift */,
-				DAD971AB19D1F86300C133C9 /* SortingTest.swift */,
 				DA7B7C6319CA284100D2E177 /* StructureTest.swift */,
 				DAE0020419C564C90035F1A0 /* Supporting Files */,
 			);
@@ -214,6 +217,7 @@
 		DAE0021019C5673F0035F1A0 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				DA20DEE91BE2D95A0032A378 /* Math.swift */,
 				DA8146A419ED905B004516F9 /* Trie.swift */,
 				DAE0021119C5677D0035F1A0 /* LinkedList.swift */,
 				DAE0021219C5677D0035F1A0 /* Graph.swift */,
@@ -222,6 +226,7 @@
 				DAE0021519C5677D0035F1A0 /* Stack.swift */,
 				DAE0021619C5677D0035F1A0 /* PathHeap.swift */,
 				DA908DDB1A0160A300DD9864 /* HashTable.swift */,
+				DA1A7D6A1B97A2080007BD2B /* Bloom.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -289,7 +294,9 @@
 		DAE001D119C564720035F1A0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Arbutus Software Inc.";
 				TargetAttributes = {
 					DAE001D819C564720035F1A0 = {
@@ -352,6 +359,7 @@
 				DAE0021C19C5677D0035F1A0 /* Stack.swift in Sources */,
 				DA908DDA1A015FB400DD9864 /* HashNode.swift in Sources */,
 				DAE0021E19C5677D0035F1A0 /* TrieNode.swift in Sources */,
+				DA1A7D6B1B97A2080007BD2B /* Bloom.swift in Sources */,
 				DAE0021D19C5677D0035F1A0 /* PathHeap.swift in Sources */,
 				DAE0022A19C567A40035F1A0 /* Vertex.swift in Sources */,
 				DAE0022C19C567A40035F1A0 /* AVLTree.swift in Sources */,
@@ -361,6 +369,7 @@
 				DA908DDC1A0160A300DD9864 /* HashTable.swift in Sources */,
 				DAE0022719C567A40035F1A0 /* Path.swift in Sources */,
 				DA8146A519ED905B004516F9 /* Trie.swift in Sources */,
+				DA20DEEA1BE2D95A0032A378 /* Math.swift in Sources */,
 				DAE0021A19C5677D0035F1A0 /* Sorting.swift in Sources */,
 				DA34571419CA3A9000DC871F /* LinkedList.swift in Sources */,
 				DAE0022819C567A40035F1A0 /* QNode.swift in Sources */,
@@ -371,29 +380,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA7BD6AF19CCED3A00DB2CB4 /* Graph.swift in Sources */,
-				DA7BD6B119CCED7A00DB2CB4 /* Queue.swift in Sources */,
+				DA66A48A1B1CF50500D1B43F /* ClosureTest.swift in Sources */,
 				DAD971AE19D222E300C133C9 /* LinkedTest.swift in Sources */,
+				DAA8EB9B1B7297C6004A0CCF /* QueueTest.swift in Sources */,
+				DA5171861B9888310091F94B /* BloomTest.swift in Sources */,
 				DA7B7C6419CA284100D2E177 /* StructureTest.swift in Sources */,
-				DA8146A619ED905B004516F9 /* Trie.swift in Sources */,
-				DA14645B1A042C600033349A /* LinkedList.swift in Sources */,
-				DA908DE01A016A9800DD9864 /* HashNode.swift in Sources */,
-				DA8146A219ED84EE004516F9 /* extensions.swift in Sources */,
+				DAA4C8A01B9657EA00BA1BA0 /* StackTest.swift in Sources */,
 				DAD971AC19D1F86300C133C9 /* SortingTest.swift in Sources */,
 				DA81469F19ED831B004516F9 /* TrieTest.swift in Sources */,
+				DA20DEEC1BE2DAC90032A378 /* MathTest.swift in Sources */,
 				DA7BD6AE19CCD8B400DB2CB4 /* GraphTest.swift in Sources */,
-				DA7B7C5619C94C4800D2E177 /* QNode.swift in Sources */,
-				DA8146A319ED84F1004516F9 /* TrieNode.swift in Sources */,
-				DA7B7C6219CA178900D2E177 /* AVLTree.swift in Sources */,
-				DA26BCCF19CBA3D200C0903A /* Sorting.swift in Sources */,
-				DA7B7C5A19CA0BF300D2E177 /* Edge.swift in Sources */,
 				DA908DDE1A016A7700DD9864 /* HashTest.swift in Sources */,
-				DA7B7C5319C8F67A00D2E177 /* LLNode.swift in Sources */,
-				DA34572D19CA3F1F00DC871F /* Path.swift in Sources */,
-				DA908DDF1A016A9200DD9864 /* HashTable.swift in Sources */,
 				DAD971B119D2232400C133C9 /* AVLTest.swift in Sources */,
-				DA7BD6B019CCED6D00DB2CB4 /* PathHeap.swift in Sources */,
-				DA7B7C5919CA0BCC00D2E177 /* Vertex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +460,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -525,6 +524,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Arbutus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -535,6 +535,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Arbutus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -543,16 +544,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = SwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Arbutus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftStructures.app/SwiftStructures";
 			};
@@ -562,12 +561,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Arbutus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftStructures.app/SwiftStructures";
 			};

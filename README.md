@@ -19,78 +19,91 @@ The project features code-level examples for the following items:
 + Binary Search
 + Insertion Sort
 + Bubble Sort
++ Selection Sort
 + Quick Sort
 + Merge Sort
++ Fibonacci Numbers
 + Generics
++ Closures
 + Hash Tables
++ Bloom Filters
 + Binary Search Trees
++ Tree Balancing (Rotations)
 + Tries
 + Stacks & Queues
 + Graphs
 + Dijkstra's Shortest Path
 + Heaps & Heapsort Operations
 + Depth-First Search
-+ Breath-First Search
++ Breadth-First Search
 
-I plan to write further additional examples of algorithms and all developers are welcome to follow the project through Github or online at <a href="http://www.waynewbishop.com/swift" target="_blank">www.waynewbishop.com/swift</a>. As a collaborative open-source effort, I also welcome <a href="https://twitter.com/waynewbishop" target="_blank">feedback</a> and <a href="https://help.github.com/articles/be-social" target="_blank">contribution</a> from others. 
+The Book
+--------------------
+Available in print, ePub or pdf format, <a href="http://shop.waynewbishop.com" target="_blank">The Swift Algorithms Book</a> features code and color illustrations that will benefit students and professionals. As a collaborative open-source effort, I also welcome <a href="https://twitter.com/waynewbishop" target="_blank">feedback</a> and <a href="http://shop.waynewbishop.com/pages/participate" target="_blank">contribution</a> from others. 
 
 
 Example
 --------------------
 
-```
-  /* graph traversal - breadth first search */
-  
-  func traverseGraphBFS(startingv: Vertex) {
+```swift
+    /* graph traversal - breadth first search */
     
+    func traverse(startingv: Vertex) {
+        
         //establish a new queue
-        var graphQueue: Queue<Vertex> = Queue<Vertex>()
-    
-    
+        let graphQueue: Queue<Vertex> = Queue<Vertex>()
+        
         //queue a starting vertex
         graphQueue.enQueue(startingv)
-    
-        while(!graphQueue.isEmpty()) {
+        
+        while !graphQueue.isEmpty() {
             
             //traverse the next queued vertex
-            var vitem = graphQueue.deQueue() as Vertex!
+            let vitem = graphQueue.deQueue() as Vertex!
             
             //add unvisited vertices to the queue
             for e in vitem.neighbors {
                 if e.neighbor.visited == false {
-                    println("adding vertex: \(e.neighbor.key!) to queue..")
+                    print("adding vertex: \(e.neighbor.key!) to queue..")
                     graphQueue.enQueue(e.neighbor)
                 }
             }
             
             vitem.visited = true
-            println("traversed vertex: \(vitem.key!)..")
+            print("traversed vertex: \(vitem.key!)..")
             
         } //end while
-    
-        println("graph traversal complete..")
         
-    
+        print("graph traversal complete..")
+        
     } //end function
 ```
 
 Getting Started
 --------------------
 
-Running Swift Structures requires Xcode 6.0 GM Seed or later. The directories are organized as follows:
+Swift Structures has been optimized for Xcode 7.0 GM Seed (e.g., Swift 2.0) or later. The directories are organized as follows:
 + Source - Code for all Swift data structures and algorithms
 + Example - An empty iOS single-view application template
 + SwiftTests - Unit tests with XCTest Framework
 
 Usage
 --------------------
-Individuals are welcome to use the code with commercial and open-source projects. As a courtesy, please provide attribution to <a href="http://www.waynebishop.com" target="_blank">waynewbishop.com</a>. For more information, review the complete <a href="https://github.com/waynewbishop/SwiftStructures/blob/master/License.md" target="_blank">license agreement</a>. 
+Individuals are welcome to use the code with commercial and open-source projects. As a courtesy, please provide attribution to <a href="http://www.waynewbishop.com" target="_blank">waynewbishop.com</a>. For more information, review the complete <a href="https://github.com/waynewbishop/SwiftStructures/blob/master/License.md" target="_blank">license agreement</a>. 
 
 
 Branches
 --------------------
 + master - The production branch. Clone or fork this repository for the latest copy
 + develop - The active development branch. <a href="https://help.github.com/articles/creating-a-pull-request" target=_blank">Pull requests</a> should be directed to this branch
+
+
+Other Projects
+--------------------
+
++ <a href="https://github.com/EvgenyKarkan/EKAlgorithms" target="_blank">EKAlgorithms</a> - A set of computer exercises implemented in Objective-C
++ <a href="https://github.com/sagivo/algorithms" target="_blank">Algorithms</a> - A playground for common questions implemented in Ruby
+
 
 Questions
 --------------------

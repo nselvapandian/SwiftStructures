@@ -9,16 +9,40 @@
 import Foundation
 
 
-class SwiftStack<T> {
+class Stack<T> {
     
     private var top: LLNode<T>! = LLNode<T>()
-
     
-    //TODO: Add count computed property
+    
+    //the number of items
+    var count: Int {
+        
+        
+        //determine if the key or instance exist
+        let topitem: T? = self.top?.key
+            
+        if (topitem == nil) {
+            return 0
+        }
+            
+        var current: LLNode = top
+        var x: Int = 1
+        
+        
+        //cycle through the list of items to get to the end.
+        while ((current.next) != nil) {
+            current = current.next!
+            x++
+        }
+            
+        return x
+        
+        
+    }
     
     
     //push an item onto the stack
-    func push(var key: T) {
+    func push(key: T) {
         
         
         //check for the instance
@@ -28,20 +52,20 @@ class SwiftStack<T> {
         
         
         //determine if the head node is populated
-        if (top.key == nil){
-            top.key = key;
+        if (top.key == nil) {
+            top.key = key
             return
         }
         else {
             
             //establish the new item instance
-            var childToUse: LLNode<T> = LLNode<T>()
+            let childToUse: LLNode<T> = LLNode<T>()
             childToUse.key = key
             
             
             //set newly created item at the top
-            childToUse.next = top;
-            top = childToUse;
+            childToUse.next = top
+            top = childToUse
             
          
         }
@@ -61,7 +85,7 @@ class SwiftStack<T> {
         }
         
         //retrieve and queue the next item
-        var queueitem: T? = top.key!
+        let queueitem: T? = top.key!
         
         
         //reset the top value
@@ -101,43 +125,13 @@ class SwiftStack<T> {
     func isEmpty() -> Bool {
         
         //determine if the key or instance exist
-        if let topitem: T = self.top?.key {
+        if let _: T = self.top?.key {
             return false
         }
             
         else {
             return true
         }
-        
-    }
-    
-    
-    
-    //determine the count of the queue
-    func count() -> Int {
-        
-        var x: Int = 0
-        
-        
-        //determine if the key or instance exist
-        let topitem: T? = self.top?.key
-        
-        if (topitem == nil) {
-             return 0
-        }
-        
-        
-        var current: LLNode = top
-        
-        x++
-        
-        //cycle through the list of items to get to the end.
-        while ((current.next) != nil) {
-            current = current.next!;
-            x++
-        }
-        
-        return x
         
     }
     
