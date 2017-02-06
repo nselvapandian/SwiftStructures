@@ -12,88 +12,80 @@ import XCTest
 @testable import SwiftStructures
 
 
-class SortingTest: XCTestCase {
+/*
+ notes: this test class adopts the Sortable protocol.
+ the isSorted function originates from the protocol extension.
+*/
 
+
+class SortingTest: XCTestCase, Sortable {
     
-    private var numberList: Array<Int>!
-    private var textList: Array<String>!
-    private var sortTest: Sorting!
-
+    
+    //test input types for algorithms
+    var numberList = [8, 2, 10, 9, 7, 5]
+    var trivialNumberList = [1]
+    var emptyNumberList: Array<Int> = []
+    var textList = ["Dog", "Cat", "Dinasour", "Lion", "Cheetah", "Gazelle", "Elephant", "Aardvark"]
+    var triviaTextList = ["Dog"]
+    var emptyTextList: Array<String> = []
+    
+    //string extension
+    var dateList: Array<Date> = ["12-10-2016".datevalue, "12-08-2016".datevalue, "12-09-2016".datevalue]
+    
     
     override func setUp() {
         super.setUp()
-        
-        numberList = [8, 2, 10, 9, 7, 5]
-        textList = ["Dog", "Cat", "Dinasour", "Lion", "Cheetah", "Gazelle", "Elephant", "Aardvark"]
-        sortTest = Sorting()
     }
     
-    
+
     
     //MARK: - Binary Search Algorithms
     
 
     func testBinarySearch() {
         
-        var searchList: Array<Int> = Array<Int>()
-        
-
-        //populate collection..
-        for number in 0...500 {
-            searchList.append(number)
-        }
-        
-        //perform theoretical search
-        sortTest.binarySearch(searchList, key: 235)
-        
-    }
-    
-
-
-    /*
-    modified binary search algorithm.
-    makes use of closure expression to pass state information
-    */
-    
-    func testBinarySearchClosure() {
-        
-        
-        var searchList: Array<Int> = Array<Int>()
-        var isFound: Bool = false
+        var searchList = Array<Int>()
         let key: Int = 235
-        
 
+        
         //populate collection..
         for number in 0...500 {
             searchList.append(number)
         }
         
         
-        //capture state with trailing closure
-        sortTest.binarySearch(searchList, key: key) { (found: Bool) -> Void in
-            isFound = found
-        }
+        XCTAssertTrue(self.isSorted(searchList), "search list of values not sorted..")
         
         
-        XCTAssertTrue(isFound, "value \(key) not found..")
-        
+        //perform test search
+        XCTAssertTrue(searchList.binarySearch(forElement: key), "binary key value \(key) not found..")
         
     }
+
     
+    func testBinaryTestNotFound() {
+        
+        var searchList: Array<Int> = [0,4,7,9,13,16,34]
+        let key: Int = 8
+        
+        //test for false positive
+        XCTAssertFalse(searchList.binarySearch(forElement: key), "binary key value \(key) found..")
+    }
+   
     
-	
+
     //MARK: General Sorting Algorithms
-	
+    
     
     func testInsertionSort() {
         
-        let resultList: Array<Int> = sortTest.insertionSort(numberList)
-        let sequence = sortTest.insertionSortG(textList)
-        
-        
-        //evaluate results
-        XCTAssertTrue(self.IsSorted(resultList), "item sequence not in sorted order..")
-        XCTAssertTrue(self.IsSorted(sequence), "item sequence not in sorted order..")
+        XCTAssertTrue(isSorted(numberList.insertionSort()))
+        XCTAssertTrue(isSorted(trivialNumberList.insertionSort()))
+        XCTAssertTrue(isSorted(emptyNumberList.insertionSort()))
+        XCTAssertTrue(isSorted(textList.insertionSort()))
+        XCTAssertTrue(isSorted(triviaTextList.insertionSort()))
+        XCTAssertTrue(isSorted(emptyTextList.insertionSort()))
+        XCTAssert(isSorted(dateList.insertionSort()))
         
     }
     
@@ -101,13 +93,13 @@ class SortingTest: XCTestCase {
     
     func testBubbleSort() {
         
-        let resultsList: Array<Int> = sortTest.bubbleSort(numberList)
-        let sequence = sortTest.bubbleSortG(textList)
-        
-        
-        //evaluate results
-        XCTAssertTrue(self.IsSorted(resultsList), "item sequence not in sorted order..")
-        XCTAssertTrue(self.IsSorted(sequence), "item sequence not in sorted order..")
+        XCTAssertTrue(isSorted(numberList.bubbleSort()))
+        XCTAssertTrue(isSorted(trivialNumberList.bubbleSort()))
+        XCTAssertTrue(isSorted(emptyNumberList.bubbleSort()))
+        XCTAssertTrue(isSorted(textList.bubbleSort()))
+        XCTAssertTrue(isSorted(triviaTextList.bubbleSort()))
+        XCTAssertTrue(isSorted(emptyTextList.bubbleSort()))
+        XCTAssert(isSorted(dateList.bubbleSort()))
         
     }
 
@@ -115,61 +107,15 @@ class SortingTest: XCTestCase {
     
     func testSelectionSort() {
         
-        let resultList: Array<Int> = sortTest.selectionSort(numberList)
-        let sequence = sortTest.insertionSortG(textList)
-      
-        
-        //evaulate results
-        XCTAssertTrue(self.IsSorted(resultList), "item sequence not in sorted order..")
-        XCTAssertTrue(self.IsSorted(sequence), "item sequence not in sorted order..")
-        
-    }
-    
-    
-    
-    func testQuickSort() {
-        
-        let resultList: Array<Int> = sortTest.quickSort(numberList)
-        
-        //evaluate results
-        XCTAssertTrue(self.IsSorted(resultList), "item sequence not in sorted order..")
+        XCTAssertTrue(isSorted(numberList.selectionSort()))
+        XCTAssertTrue(isSorted(trivialNumberList.selectionSort()))
+        XCTAssertTrue(isSorted(emptyNumberList.selectionSort()))
+        XCTAssertTrue(isSorted(textList.selectionSort()))
+        XCTAssertTrue(isSorted(triviaTextList.selectionSort()))
+        XCTAssertTrue(isSorted(emptyTextList.selectionSort()))
+        XCTAssert(isSorted(dateList.selectionSort()))
         
     }
     
-    
-    
-    func testMergeSort() {
-        
-        let resultList: Array<Int> = sortTest.mergeSort(numberList)
-        
-        //evaluate results
-        XCTAssertTrue(self.IsSorted(resultList), "item sequence not in sorted order..")
-        
-    }
-    
-    
-    
-    //MARK: Helper Function
-    
-    
-    //generic method to determine sorted order
-    func IsSorted<T: Comparable>(sequence: [T]) -> Bool {
-        
-        
-        for var primaryIndex = 0; primaryIndex < sequence.count; primaryIndex++ {
-            
-            //test sequence
-            if (primaryIndex > 0 && sequence[primaryIndex] < sequence[primaryIndex - 1]) {
-                return false
-            }
-            
-        }
-        
-        return true
-        
-    }
-    
-    
-
     
 }

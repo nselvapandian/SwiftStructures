@@ -1,27 +1,34 @@
 //
-//  Math.swift
+//  Int.swift
 //  SwiftStructures
 //
-//  Created by Wayne Bishop on 10/29/15.
-//  Copyright © 2015 Arbutus Software Inc. All rights reserved.
+//  Created by Wayne Bishop on 7/1/16.
+//  Copyright © 2016 Arbutus Software Inc. All rights reserved.
 //
 
 import Foundation
 
 
-class Math {
-
-
-    //MARK: Fibonacci algorithms
+extension Int {
+    
+    //iterates the closure body a specified number of times
+    func times(closure:(Int)-> Void) {
+        for i in 0...self {
+            closure(i)
+        }
+    }
+    
     
     
     //build fibonacci sequence to a specified position - default
-    func fib(n: Int) -> Array<Int>! {
+    func fibNormal() -> Array<Int>! {
         
         
-        if n < 2 {
+        //check trivial condition
+        guard self > 2 else {
             return nil
         }
+        
         
         //initialize the sequence
         var sequence: Array<Int> = [0, 1]
@@ -29,7 +36,7 @@ class Math {
         
         var i: Int = sequence.count
         
-        while i != n {
+        while i != self {
             
             let results: Int = sequence[i - 1] + sequence[i - 2]
             sequence.append(results)
@@ -41,44 +48,54 @@ class Math {
         return sequence
         
     }
-
+    
     
     
     //build fibonacci sequence to a specified position - recursive
-    func fib(n: Int, var sequence: Array<Int> = [0, 1]) {
+    mutating func fibRecursive(_ sequence: Array<Int> = [0, 1]) -> Array<Int>! {
+        
+        var final = Array<Int>()
+        
+        
+        //mutated copy
+        var output = sequence
 
         
-        //initialize sequence
-        if n < 2 {
-            return
+        //check trivial condition
+        guard self > 2 else {
+            return nil
         }
+
         
-        
-        let i: Int = sequence.count
+        let i: Int = output.count
         
         
         //set base condition
-        if i == n {
-            return
+        if i == self {
+            return output
         }
         
-        let results: Int = sequence[i - 1] + sequence[i - 2]
-        sequence.append(results)
-
+        
+        let results: Int = output[i - 1] + output[i - 2]
+        output.append(results)
+        
         
         //set iteration
-        fib(n, sequence: sequence)
+        final = self.fibRecursive(output)
         
-    
-
+        
+        return final
+        
     }
     
-    
+
     
     //build fibonacci sequence to a specified position - trailing closure
-    func fib(n: Int, formula: Array<Int> -> Int) -> Array<Int>! {
-                
-        if n < 2 {
+    func fibClosure(withFormula formula: (Array<Int>) -> Int) -> Array<Int>! {
+        
+        
+        //check trivial condition
+        guard self > 2 else {
             return nil
         }
         
@@ -88,14 +105,14 @@ class Math {
         
         var i: Int = sequence.count
         
-        while i != n {
+        while i != self {
             
             let results: Int = formula(sequence)
             sequence.append(results)
             
             i += 1
         }
-
+        
         
         return sequence
         
@@ -104,3 +121,7 @@ class Math {
     
     
 }
+
+
+
+

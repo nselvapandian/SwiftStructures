@@ -28,12 +28,13 @@ public class PathHeap {
     //obtain the minimum path
     func peek() -> Path! {
         
-        if (heap.count > 0) {
-            return heap[0] //the shortest path
+        if heap.count > 0 {
+           return heap[0] //the shortest path
         }
         else {
             return nil
         }
+        
     }
     
 
@@ -41,15 +42,15 @@ public class PathHeap {
     //remove the minimum path
     func deQueue() {
         
-        if (heap.count > 0) {
-            heap.removeAtIndex(0)
+        if heap.count > 0 {
+            heap.remove(at: 0)
         }
         
     }
     
 
     //sort shortest paths into a min-heap (heapify)
-    func enQueue(key: Path) {
+    func enQueue(_ key: Path) {
         
 
         heap.append(key)

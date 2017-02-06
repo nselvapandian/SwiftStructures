@@ -12,11 +12,11 @@ import Foundation
 public class LinkedList<T: Equatable> {
     
     
-    //create a new LLNode instance 
-    private var head: LLNode<T> = LLNode<T>()
+   //new instance
+   private var head = LLNode<T>()
     
     
-   //the number of items
+  
    var count: Int {
         
             if head.key == nil {
@@ -32,7 +32,7 @@ public class LinkedList<T: Equatable> {
                 //cycle through the list of items
                 while current.next != nil {
                     current = current.next!
-                    x++
+                    x += 1
                 }
                 
                 return x
@@ -44,34 +44,30 @@ public class LinkedList<T: Equatable> {
     
     //empty list check
     func isEmpty() -> Bool! {
-        
-        // returns true if count is 0 or if the list's head is nil
         return self.count == 0 || head.key == nil
-        
     }
     
     
     
-    //append a new item to a linked list
-    func addLink(key: T) {
+    //add link item
+    func append(element key: T) {
+
         
-        
-        //establish the head node
-        if (head.key == nil) {
+        //trivial check
+        guard head.key != nil else {
             head.key = key
             return
         }
     
         
-        //establish the iteration variables
-        var current: LLNode? =  head
+        var current: LLNode? = head
         
         
-        while (current != nil) {
+        while current != nil {
             
             if current?.next == nil {
                 
-                let childToUse: LLNode = LLNode<T>()
+                let childToUse = LLNode<T>()
                 
                 childToUse.key = key
                 childToUse.previous = current
@@ -98,11 +94,11 @@ public class LinkedList<T: Equatable> {
         print("------------------")
         
         //assign the next instance
-        while (current != nil) {
+        
+        while current != nil {
             print("link item is: \(current.key)")
             current = current.next
         }
-        
         
     }
     
@@ -111,9 +107,10 @@ public class LinkedList<T: Equatable> {
     
     
     //obtain link at a specific index
-    func linkAtIndex(index: Int) ->LLNode<T>! {
+    func getElement(at index: Int) ->LLNode<T>! {
+
         
-        //check for nil conditions
+        //check empty conditions
         if ((index < 0) || (index > (self.count - 1)) || (head.key == nil)) {
             return nil
         }
@@ -122,11 +119,12 @@ public class LinkedList<T: Equatable> {
         else  {
             var current: LLNode<T>! = head
             var x: Int = 0
+
             
-            //cycle through the list of items
+            //cycle through elements
             while (index != x) {
                 current = current.next
-                x++
+                x += 1
             }
             
             return current
@@ -134,13 +132,13 @@ public class LinkedList<T: Equatable> {
         } //end else
         
         
-    } //end function
+    }
 
     
     
     
     //insert at specific index
-    func addLinkAtIndex(key: T, index: Int) {
+    func insert(_ key: T, at index: Int) {
         
         
         //check for nil conditions
@@ -150,10 +148,11 @@ public class LinkedList<T: Equatable> {
         
         
         //establish the head node
-        if (head.key == nil) {
+        guard head.key != nil else {
             head.key = key
             return
         }
+        
         
         //establish the trailer, current and new items
         var current: LLNode<T>? = head
@@ -213,7 +212,7 @@ public class LinkedList<T: Equatable> {
     
     
     //remove at specific index
-    func removeLinkAtIndex(index: Int) {
+    func remove(at index: Int) {
         
         //check for nil conditions
         if ((index < 0) || (index > (self.count - 1)) || (head.key == nil)) {
@@ -236,9 +235,9 @@ public class LinkedList<T: Equatable> {
         
         
         //iterate through the remaining items
-        while (current != nil) {
+        while current != nil {
             
-            if (listIndex == index) {
+            if listIndex == index {
                 
                 //redirect the trailer and next pointers
                 trailer!.next = current?.next
@@ -250,7 +249,7 @@ public class LinkedList<T: Equatable> {
             //update the assignments
             trailer = current
             current = current?.next
-            listIndex++
+            listIndex += 1
             
         } //end while
         
@@ -262,7 +261,7 @@ public class LinkedList<T: Equatable> {
     
     
   //reverse the order of a linked list
-  func reverseLinkedList() {
+  func reverse() {
     
     //if count == 1 or count == 0,no need to reverse
     if self.count <= 1{
@@ -289,12 +288,12 @@ public class LinkedList<T: Equatable> {
       //move to next node
       current = next
         
-    }//end while
+    }
     
-    
-  }//end function
+  }
     
   
+    
     
     //MARK: Closure operations
     
@@ -307,12 +306,12 @@ public class LinkedList<T: Equatable> {
     
     
     //filter list content - higher order function
-    func filter(formula: LLNode<T> -> Bool) -> LinkedList<T>! {
+    func filter(_ formula: (LLNode<T>) -> Bool) -> LinkedList<T>! {
         
         
         //check for instance
-        if head.key == nil {
-           return nil
+        guard head.key != nil else {
+            return nil
         }
         
         
@@ -324,7 +323,7 @@ public class LinkedList<T: Equatable> {
             
             //filter based on formula
             if formula(current) == true {
-                results.addLink(current.key)
+                results.append(element: current.key)
             }
             
             
@@ -339,12 +338,12 @@ public class LinkedList<T: Equatable> {
     
     
     //map list content - higher order function
-    func map(formula: LLNode<T> -> T) -> LinkedList<T>! {
+    func map(_ formula: (LLNode<T>) -> T) -> LinkedList<T>! {
         
         
         //check for instance
-        if head.key == nil {
-           return nil
+        guard head.key != nil else {
+            return nil
         }
         
         
@@ -360,7 +359,7 @@ public class LinkedList<T: Equatable> {
             
             //add non-nil entries
             if newKey != nil {
-                results.addLink(newKey)
+                results.append(element: newKey)
             }
             
             

@@ -26,11 +26,14 @@ class AVLTest: XCTestCase {
     
     
     func testCount() {
+        
         let numberList = [1, 2, 3, 5, 234, -20]
         let tree = AVLTree<Int>()
+        
         for number in numberList {
-            tree.addNode(number)
+            tree.append(element: number)
         }
+        
         XCTAssert(tree.count == numberList.count, "Expected tree's size to be \(numberList.count), got \(tree.count) instead.")
     }
 
@@ -105,7 +108,8 @@ class AVLTest: XCTestCase {
         let avlTest = self.buildClosureTree()
         
         //invoke formula function
-        avlTest.traverse(traverseFormula)
+        avlTest.traverse(withFormula: traverseFormula)
+        
         
     }
     
@@ -160,7 +164,7 @@ class AVLTest: XCTestCase {
     
     
     //helper function - build and balance bst
-    func buildAVLTree(numberList: Array<Int>) {
+    func buildAVLTree(_ numberList: Array<Int>) {
         
         
         //test for new instance
@@ -171,7 +175,7 @@ class AVLTest: XCTestCase {
         //build the tree list
         for number in numberList {
             print("adding \(number) to avl tree...")
-            avlTest.addNode(number)
+            avlTest.append(element: number)
         }
         
         
@@ -203,7 +207,7 @@ class AVLTest: XCTestCase {
         //build the tree list
         for number in numberList {
             print("adding \(number) to avl tree...")
-            avlTest.addNode(number)
+            avlTest.append(element: number)
         }
 
         

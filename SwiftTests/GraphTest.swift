@@ -54,12 +54,12 @@ class GraphTest: XCTestCase {
     
     //validate neighbor association
     func testVertexNeighbors() {
-
-        neighborTest(vertexA, neighbor: vertexD)
-        neighborTest(vertexA, neighbor: vertexB)
-        neighborTest(vertexB, neighbor: vertexD)
-        neighborTest(vertexB, neighbor: vertexC)
-        neighborTest(vertexD, neighbor: vertexE)
+        
+        neighborTest(of: vertexA, with: vertexD)
+        neighborTest(of: vertexA, with: vertexB)
+        neighborTest(of: vertexB, with: vertexD)
+        neighborTest(of: vertexB, with: vertexC)
+        neighborTest(of: vertexD, with: vertexE)
     }
     
     
@@ -71,7 +71,7 @@ class GraphTest: XCTestCase {
         let destinationVertex = vertexE
         
         
-        let shortestPath: Path! = testGraph.processDijkstraWithHeap(sourceVertex, destination: destinationVertex)
+        let shortestPath: Path! = testGraph.processDijkstraWithHeap(sourceVertex!, destination: destinationVertex!)
         XCTAssertNotNil(shortestPath, "shortest path not found..")
         
         printPath(shortestPath)
@@ -89,7 +89,7 @@ class GraphTest: XCTestCase {
         let destinationVertex = vertexE
 
         
-        let shortestPath: Path! = testGraph.processDijkstra(sourceVertex, destination: destinationVertex)
+        let shortestPath: Path! = testGraph.processDijkstra(sourceVertex!, destination: destinationVertex!)
         XCTAssertNotNil(shortestPath, "shortest path not found..")
         
         printPath(shortestPath)
@@ -122,7 +122,7 @@ class GraphTest: XCTestCase {
         As a result, no return type is required. Also note the trailing closure syntax.
         */
 
-        testGraph.traverse(vertexA) { (inout node: Vertex) -> () in
+        testGraph.traverse(vertexA) { ( node: inout Vertex) -> () in
             
             node.visited = true
             print("traversed vertex: \(node.key!)..")
@@ -135,7 +135,7 @@ class GraphTest: XCTestCase {
 
     
     //closure function passed as parameter
-    func traverseFormula(inout node: Vertex) -> () {
+    func traverseFormula(node: inout Vertex) -> () {
         
         /*
         notes: the inout parameter is passed by reference. 
@@ -150,27 +150,26 @@ class GraphTest: XCTestCase {
     
     
     //MARK: - Helper function
-
     
-    //check for neighbor membership
-    func neighborTest(source: Vertex, neighbor: Vertex) -> Bool! {
+    
+    //check for membership
+    func neighborTest(of source: Vertex, with neighbor: Vertex) {
 
         
         //add unvisited vertices to the queue
         for e in source.neighbors {
             if (e.neighbor.key == neighbor.key) {
-                return true
+                return
             }
         }
         
         XCTFail("vertex \(neighbor.key!) is not a neighbor of vertex \(source.key!)")
-        return nil
         
     }
     
     
     //reverse a path data structure
-    func printPath(shortestPath: Path!) {
+    func printPath(_ shortestPath: Path!) {
 
         
         var reversedPath: Path! = Path()

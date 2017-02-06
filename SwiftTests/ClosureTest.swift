@@ -12,26 +12,6 @@ import XCTest
 @testable import SwiftStructures
 
 
-//MARK:  custom operator
-
-
-/* 
-notes: infix class operator to represent exponent operation
-single carat symbol reserved for XOR bit manipulation
-*/
-
-
-infix operator ^^ {}
-
-func ^^(base: Int, power: Int) -> Int {
-    
-    //rounded to nearest int
-    let results: Double = round(pow(Double(base), Double(power)))
-    return Int(results)
-}
-
-
-
 class ClosureTest: XCTestCase {
 
     var numberList: Array<Int>!
@@ -130,9 +110,11 @@ class ClosureTest: XCTestCase {
         
         //iterate and compare values
         for s in 0..<numberList.count {
-            if linkedList.linkAtIndex(s).key == results.linkAtIndex(s).key {
-                XCTFail("linked list map formula not applied..")
+            
+            if linkedList.getElement(at: s).key == results.getElement(at: s).key {
+                XCTFail("test failed: linked list map formula not applied..")
             }
+            
         }
         
         
@@ -158,9 +140,11 @@ class ClosureTest: XCTestCase {
         
         //iterate and compare values
         for s in 0..<numberList.count {
-            if linkedList.linkAtIndex(s).key == results.linkAtIndex(s).key {
+            
+            if linkedList.getElement(at: s).key == results.getElement(at: s).key {
                 XCTFail("linked list map formula not applied..")
             }
+            
         }
         
         
@@ -209,7 +193,7 @@ class ClosureTest: XCTestCase {
         
         //append list items
         for number in numberList {
-            linkedList.addLink(number)
+            linkedList.append(element: number)
         }
         
         
